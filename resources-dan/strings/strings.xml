@@ -1,0 +1,23 @@
+<strings>
+    <string id="AppName">CleanSteps</string>
+    <string id="lang">da</string>
+    <string id="Day0">Søn</string>
+    <string id="Day1">Man</string>
+    <string id="Day2">Tir</string>
+    <string id="Day3">Ons</string>
+    <string id="Day4">Tor</string>
+    <string id="Day5">Fre</string>
+    <string id="Day6">Lør</string>
+    <string id="Mon0">Jan</string>
+    <string id="Mon1">Feb</string>
+    <string id="Mon2">Mar</string>
+    <string id="Mon3">Apr</string>
+    <string id="Mon4">Maj</string>
+    <string id="Mon5">Jun</string>
+    <string id="Mon6">Jul</string>
+    <string id="Mon7">Aug</string>
+    <string id="Mon8">Sep</string>
+    <string id="Mon9">Okt</string>
+    <string id="Mon10">Nov</string>
+    <string id="Mon11">Dec</string>
+</strings>
