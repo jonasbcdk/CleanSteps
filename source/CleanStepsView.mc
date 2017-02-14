@@ -7,12 +7,55 @@ using Toybox.Time.Gregorian as Greg;
 
 class CleanStepsView extends Ui.WatchFace {
 
+	var months;
+	var weekdays;	
+	
+	var watchHeight;
+	var watchWidth;
+
+	var foregroundColor;
+	var backgroundColor;
+	
+	var lang;
+
     function initialize() {
         WatchFace.initialize();
+        		
+		foregroundColor = Gfx.COLOR_WHITE;
+		backgroundColor = Gfx.COLOR_BLACK;
+        
+        months = [
+			Ui.loadResource(Rez.Strings.Mon0),
+			Ui.loadResource(Rez.Strings.Mon1),
+			Ui.loadResource(Rez.Strings.Mon2),
+			Ui.loadResource(Rez.Strings.Mon3),
+			Ui.loadResource(Rez.Strings.Mon4),
+			Ui.loadResource(Rez.Strings.Mon5),
+			Ui.loadResource(Rez.Strings.Mon6),
+			Ui.loadResource(Rez.Strings.Mon7),
+			Ui.loadResource(Rez.Strings.Mon8),
+			Ui.loadResource(Rez.Strings.Mon9),
+			Ui.loadResource(Rez.Strings.Mon10),
+			Ui.loadResource(Rez.Strings.Mon11)
+		];
+		
+		weekdays = [
+			Ui.loadResource(Rez.Strings.Day0),
+			Ui.loadResource(Rez.Strings.Day1),
+			Ui.loadResource(Rez.Strings.Day2),
+			Ui.loadResource(Rez.Strings.Day3),
+			Ui.loadResource(Rez.Strings.Day4),
+			Ui.loadResource(Rez.Strings.Day5),
+			Ui.loadResource(Rez.Strings.Day6)
+		];
+		
+		lang = Ui.loadResource(Rez.Strings.lang);
     }
 
     // Load your resources here
-    function onLayout(dc) {
+    function onLayout(dc) {    
+        watchHeight = dc.getHeight();
+		watchWidth = dc.getWidth();
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -26,15 +69,8 @@ class CleanStepsView extends Ui.WatchFace {
         // Get and show the current time
         var clockTime = Sys.getClockTime();
         var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
-		
-		var watchHeight = dc.getHeight();
-		var watchWidth = dc.getWidth();
-
-		var foregroundColor = Gfx.COLOR_WHITE;
-		var backgroundColor = Gfx.COLOR_BLACK;
-		
+				
 		// Clear gfx
-		//dc.clear();
 		dc.setColor(backgroundColor, backgroundColor);
 		dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
 
@@ -48,10 +84,9 @@ class CleanStepsView extends Ui.WatchFace {
 
 		var steps = actinfo.steps; // 3000
 		var stepGoal = actinfo.stepGoal; //10000;
-		var stepPercentage = 1.0 * steps / stepGoal; 
-				
+						
 		var stepBarWidth = watchWidth * 0.6;
-		var highlightWidth = stepBarWidth * stepPercentage;
+		var highlightWidth = stepBarWidth * steps / stepGoal;
 				
 		if (highlightWidth > stepBarWidth - 2)
 		{
@@ -83,8 +118,6 @@ class CleanStepsView extends Ui.WatchFace {
 		// Draw notifications count
 		var settings = Sys.getDeviceSettings();
 		
-		//if (settings.notificationCount>0)
-
 		dc.drawRectangle(155, 20, 15, 10);
 		dc.drawLine(155, 20, 162, 26);
 		dc.drawLine(162, 26, 170, 20);
@@ -94,34 +127,7 @@ class CleanStepsView extends Ui.WatchFace {
 
 		// Draw date
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
-		
-		var months = [
-			Ui.loadResource(Rez.Strings.Mon0),
-			Ui.loadResource(Rez.Strings.Mon1),
-			Ui.loadResource(Rez.Strings.Mon2),
-			Ui.loadResource(Rez.Strings.Mon3),
-			Ui.loadResource(Rez.Strings.Mon4),
-			Ui.loadResource(Rez.Strings.Mon5),
-			Ui.loadResource(Rez.Strings.Mon6),
-			Ui.loadResource(Rez.Strings.Mon7),
-			Ui.loadResource(Rez.Strings.Mon8),
-			Ui.loadResource(Rez.Strings.Mon9),
-			Ui.loadResource(Rez.Strings.Mon10),
-			Ui.loadResource(Rez.Strings.Mon11)
-		];
-		
-		var weekdays = [
-			Ui.loadResource(Rez.Strings.Day0),
-			Ui.loadResource(Rez.Strings.Day1),
-			Ui.loadResource(Rez.Strings.Day2),
-			Ui.loadResource(Rez.Strings.Day3),
-			Ui.loadResource(Rez.Strings.Day4),
-			Ui.loadResource(Rez.Strings.Day5),
-			Ui.loadResource(Rez.Strings.Day6)
-		];
-
-		var lang = Ui.loadResource(Rez.Strings.lang);
-		
+				
 		var dateText = weekdays[dateinfo.day_of_week-1] + ", " + months[dateinfo.month-1] + " " + dateinfo.day;
 		
 		if (lang.equals("da")) {
@@ -129,9 +135,6 @@ class CleanStepsView extends Ui.WatchFace {
 		}
 
 		dc.drawText(watchWidth / 2, 120, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
-
-        // Call the parent onUpdate function to redraw the layout
-        //View.onUpdate(dc);
     }
 
     // Called when this View is removed from the screen. Save the
