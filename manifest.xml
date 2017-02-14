@@ -2,13 +2,13 @@
     <iq:application entry="CleanStepsApp" id="ED23D30BB66743D4BC44677FAD7EF0B2" launcherIcon="@Drawables.LauncherIcon" minSdkVersion="1.2.0" name="@Strings.AppName" type="watchface">
 
         <iq:products>
+            <iq:product id="fr630"/>
             <iq:product id="fr235"/>
             <iq:product id="fr735xt"/>
             <iq:product id="fr230"/>
         </iq:products>
 
-        <iq:permissions>
-        </iq:permissions>
+        <iq:permissions/>
 
         <iq:languages>
             <iq:language>dan</iq:language>
