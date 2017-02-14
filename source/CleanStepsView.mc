@@ -8,7 +8,9 @@ using Toybox.Time.Gregorian as Greg;
 class CleanStepsView extends Ui.WatchFace {
 
 	var months;
-	var weekdays;	
+	var weekdays;
+	var dateFormat;
+	var lang;
 	
 	var watchHeight;
 	var watchWidth;
@@ -16,8 +18,6 @@ class CleanStepsView extends Ui.WatchFace {
 	var foregroundColor;
 	var backgroundColor;
 	
-	var lang;
-
     function initialize() {
         WatchFace.initialize();
         		
@@ -49,6 +49,7 @@ class CleanStepsView extends Ui.WatchFace {
 			Ui.loadResource(Rez.Strings.Day6)
 		];
 		
+		dateFormat = Ui.loadResource(Rez.Strings.DateFormat);
 		lang = Ui.loadResource(Rez.Strings.lang);
     }
 
@@ -128,12 +129,12 @@ class CleanStepsView extends Ui.WatchFace {
 		// Draw date
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
 				
-		var dateText = weekdays[dateinfo.day_of_week-1] + ", " + months[dateinfo.month-1] + " " + dateinfo.day;
+		var weekday = weekdays[dateinfo.day_of_week-1];
+		var month = months[dateinfo.month-1];
+		var date = dateinfo.day;
 		
-		if (lang.equals("da")) {
-			dateText = weekdays[dateinfo.day_of_week-1] + ", " + dateinfo.day + ". " + months[dateinfo.month-1];
-		}
-
+		var dateText = Lang.format(dateFormat, [weekday, month, date]);
+		
 		dc.drawText(watchWidth / 2, 120, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
     }
 

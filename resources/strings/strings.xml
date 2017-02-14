@@ -1,6 +1,7 @@
 <strings>
     <string id="AppName">CleanSteps</string>
     <string id="lang">en</string>
+    <string id="DateFormat">$1$, $2$ $3$</string>
     <string id="Day0">Sun</string>
     <string id="Day1">Mon</string>
     <string id="Day2">Tue</string>
