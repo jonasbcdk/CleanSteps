@@ -65,8 +65,25 @@ class CleanStepsView extends Ui.WatchFace {
     function onShow() {
     }
 
+	function drawBluetooth(dc) {
+	
+        dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
+        
+		var x = dc.getWidth() / 2;
+		var y = 20;
+    
+    	dc.drawLine(x, y, x+6, y+6);
+    	dc.drawLine(x+6, y+6, x+3, y+9);
+    	dc.drawLine(x+3, y+9, x+3, y-3);
+    	dc.drawLine(x+3, y-3, x+6, y);
+    	dc.drawLine(x+6, y, x-1, y+6);
+    	
+        dc.setColor(foregroundColor, backgroundColor);
+	}
+
     // Update the view
     function onUpdate(dc) {
+       	    
         // Get and show the current time
         var clockTime = Sys.getClockTime();
         var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
@@ -77,9 +94,8 @@ class CleanStepsView extends Ui.WatchFace {
 
 		// Draw clock
 		dc.setColor(foregroundColor, backgroundColor);		
-		dc.drawText(watchWidth / 2, 25, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
-
-		
+		dc.drawText(watchWidth / 2, 30, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+				
 		// Draw steps
 		var actinfo = Act.getInfo();
 
@@ -89,7 +105,7 @@ class CleanStepsView extends Ui.WatchFace {
 		var stepBarWidth = watchWidth * 0.6;
 		var highlightWidth = stepBarWidth * steps / stepGoal;
 		
-		dc.drawRectangle(watchWidth * 0.2, watchHeight - 30, stepBarWidth, 20);
+		dc.drawRectangle(watchWidth * 0.2, watchHeight - 22, stepBarWidth, 18);
 		dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
 				
 		if (highlightWidth > stepBarWidth - 4)
@@ -98,7 +114,7 @@ class CleanStepsView extends Ui.WatchFace {
 			dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
 		}	
 						
-        dc.fillRectangle(watchWidth * 0.2 + 2, watchHeight - 28, highlightWidth, 16);
+        dc.fillRectangle(watchWidth * 0.2 + 2, watchHeight - 20, highlightWidth, 14);
         dc.setColor(foregroundColor, backgroundColor);
 
 
@@ -135,7 +151,12 @@ class CleanStepsView extends Ui.WatchFace {
 
         dc.drawText(150, 14, Gfx.FONT_TINY, settings.notificationCount, Gfx.TEXT_JUSTIFY_RIGHT);
         
-
+        
+        // Draw bluetooth icon
+        if (settings.phoneConnected) {
+    		drawBluetooth(dc);
+        }
+        
 		// Draw date
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
 				
@@ -145,7 +166,7 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		var dateText = Lang.format(dateFormat, [weekday, month, date]);
 		
-		dc.drawText(watchWidth / 2, 120, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+		dc.drawText(watchWidth / 2, 125, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
     }
 
     // Called when this View is removed from the screen. Save the
