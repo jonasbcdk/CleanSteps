@@ -83,8 +83,8 @@ class CleanStepsView extends Ui.WatchFace {
 		// Draw steps
 		var actinfo = Act.getInfo();
 
-		var steps = actinfo.steps; // 3000
-		var stepGoal = actinfo.stepGoal; //10000;
+		var steps = 3000; //actinfo.steps; // 3000
+		var stepGoal = 10000; //actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
 		var highlightWidth = stepBarWidth * steps / stepGoal;
@@ -107,8 +107,16 @@ class CleanStepsView extends Ui.WatchFace {
 
         dc.drawRectangle(40, 20, 20, 10);
         dc.drawRectangle(60, 22, 2, 6);
-		        
-        dc.setColor(Gfx.COLOR_LT_GRAY, backgroundColor);
+		
+		dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+		
+		if (battery < 20) {
+			dc.setColor(Gfx.COLOR_ORANGE, backgroundColor);			
+		}
+		if (battery < 10) {
+			dc.setColor(Gfx.COLOR_RED, backgroundColor);			
+		} 
+						        
         dc.fillRectangle(41, 21, batteryBarLength, 8);
         
         dc.setColor(foregroundColor, backgroundColor);
