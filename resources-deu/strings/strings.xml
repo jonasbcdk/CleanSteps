@@ -1,0 +1,24 @@
+<strings>
+    <string id="AppName">CleanSteps</string>
+    <string id="lang">de</string>
+    <string id="DateFormat">$1$, $3$. $2$</string>
+    <string id="Day0">Son</string>
+    <string id="Day1">Mon</string>
+    <string id="Day2">Die</string>
+    <string id="Day3">Mit</string>
+    <string id="Day4">Don</string>
+    <string id="Day5">Fre</string>
+    <string id="Day6">Sam</string>
+    <string id="Mon0">Jan</string>
+    <string id="Mon1">Feb</string>
+    <string id="Mon2">Mär</string>
+    <string id="Mon3">Apr</string>
+    <string id="Mon4">Mai</string>
+    <string id="Mon5">Jun</string>
+    <string id="Mon6">Jul</string>
+    <string id="Mon7">Aug</string>
+    <string id="Mon8">Sep</string>
+    <string id="Mon9">Okt</string>
+    <string id="Mon10">Nov</string>
+    <string id="Mon11">Dez</string>
+</strings>
