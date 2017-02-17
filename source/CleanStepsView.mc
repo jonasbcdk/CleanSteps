@@ -4,6 +4,7 @@ using Toybox.System as Sys;
 using Toybox.Lang as Lang;
 using Toybox.ActivityMonitor as Act;
 using Toybox.Time.Gregorian as Greg;
+using Toybox.Time as Time;
 
 class CleanStepsView extends Ui.WatchFace {
 
@@ -17,6 +18,8 @@ class CleanStepsView extends Ui.WatchFace {
 
 	var foregroundColor;
 	var backgroundColor;
+	
+    var scaleFactor;
 	
     function initialize() {
         WatchFace.initialize();
@@ -57,6 +60,13 @@ class CleanStepsView extends Ui.WatchFace {
     function onLayout(dc) {    
         watchHeight = dc.getHeight();
 		watchWidth = dc.getWidth();
+				
+		//scaleFactor = 1.0;
+				
+		scaleFactor = watchHeight / 180.0;
+		
+		//System.println("height: " + watchHeight);
+		//System.println("scaleFactor: " + scaleFactor);
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -65,12 +75,11 @@ class CleanStepsView extends Ui.WatchFace {
     function onShow() {
     }
 
-	function drawBluetooth(dc) {
-	
+	function drawBluetooth(dc) {	
         dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
         
 		var x = dc.getWidth() / 2;
-		var y = 20;
+		var y = 22 * scaleFactor;
     
     	dc.drawLine(x, y, x+6, y+6);
     	dc.drawLine(x+6, y+6, x+3, y+9);
@@ -83,48 +92,35 @@ class CleanStepsView extends Ui.WatchFace {
 
     // Update the view
     function onUpdate(dc) {
-       	    
-        // Get and show the current time
-        var clockTime = Sys.getClockTime();
-        var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
-				
+       	      	
 		// Clear gfx
 		dc.setColor(backgroundColor, backgroundColor);
 		dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
 
-		// Draw clock
-		dc.setColor(foregroundColor, backgroundColor);		
-		dc.drawText(watchWidth / 2, 30, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
-				
-		// Draw steps
-		var actinfo = Act.getInfo();
-
-		var steps = actinfo.steps; // 3000
-		var stepGoal = actinfo.stepGoal; //10000;
-						
-		var stepBarWidth = watchWidth * 0.6;
-		var highlightWidth = stepBarWidth * steps / stepGoal;
 		
-		dc.drawRectangle(watchWidth * 0.2, watchHeight - 22, stepBarWidth, 18);
-		dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
+		dc.setColor(foregroundColor, backgroundColor);
+		
+		// Draw clock	
+		var time = Util.getCurrentTime();
+			
+		var timeHeight = dc.getTextDimensions(time.minutes, Gfx.FONT_NUMBER_THAI_HOT)[1];
+		
+        var timeString = Lang.format("$1$:$2$", [time.hours, time.minutes]);
+        var timeY = watchHeight / 2 - timeHeight / 2 - 13 * scaleFactor;
 				
-		if (highlightWidth > stepBarWidth - 4)
-		{
-			highlightWidth = stepBarWidth - 4;
-			dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
-		}	
-						
-        dc.fillRectangle(watchWidth * 0.2 + 2, watchHeight - 20, highlightWidth, 14);
-        dc.setColor(foregroundColor, backgroundColor);
-
-
+		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+				
+				
 		// Draw battery
+		var batteryY = 22 * scaleFactor;
+		var batteryX = watchWidth * 0.2;
+		
 		var systemStats = Sys.getSystemStats();
 		var battery = systemStats.battery;
 		var batteryBarLength = 0.18 * battery;
 
-        dc.drawRectangle(40, 20, 20, 10);
-        dc.drawRectangle(60, 22, 2, 6);
+        dc.drawRectangle(batteryX, batteryY, 20, 10);
+        dc.drawRectangle(batteryX+20, batteryY + 2, 2, 6);
 		
 		dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
 				
@@ -135,27 +131,39 @@ class CleanStepsView extends Ui.WatchFace {
 			dc.setColor(Gfx.COLOR_RED, backgroundColor);			
 		} 
 						        
-        dc.fillRectangle(41, 21, batteryBarLength, 8);
+        dc.fillRectangle(batteryX + 1, batteryY + 1, batteryBarLength, 8);
         
         dc.setColor(foregroundColor, backgroundColor);
         
-        dc.drawText(65, 14, Gfx.FONT_TINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
+        var batteryTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
+        
+        System.println("batteryTextHeight: " + batteryTextHeight);
+        
+        dc.drawText(batteryX + 25, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
 
 
 		// Draw notifications count
+		var notificationsY = 22 * scaleFactor;
+		var notificationsX = watchWidth - watchWidth * 0.2;	
+		
+		System.println("notificationsX: " + notificationsX);
+		
 		var settings = Sys.getDeviceSettings();
 		
-		dc.drawRectangle(155, 20, 15, 10);
-		dc.drawLine(155, 20, 162, 26);
-		dc.drawLine(162, 26, 170, 20);
+		dc.drawRectangle(notificationsX - 15, notificationsY, 15, 10);
+		dc.drawLine(notificationsX - 15, notificationsY, notificationsX - 8, notificationsY + 6);
+		dc.drawLine(notificationsX - 8, notificationsY + 6, notificationsX, notificationsY);
 
-        dc.drawText(150, 14, Gfx.FONT_TINY, settings.notificationCount, Gfx.TEXT_JUSTIFY_RIGHT);
+		var notificationsTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
+
+        dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, settings.notificationCount, Gfx.TEXT_JUSTIFY_RIGHT);
         
         
         // Draw bluetooth icon
         if (settings.phoneConnected) {
     		drawBluetooth(dc);
         }
+        
         
 		// Draw date
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
@@ -166,7 +174,38 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		var dateText = Lang.format(dateFormat, [weekday, month, date]);
 		
-		dc.drawText(watchWidth / 2, 125, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+		var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_SYSTEM_SMALL)[1];
+		
+		var dateY = watchHeight - watchHeight * 0.25 - dateTextHeight;
+				
+		System.println("dateTextHeight: " + dateTextHeight);
+		
+		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+		
+		
+				
+		// Draw steps
+		var actinfo = Act.getInfo();
+
+		var steps = 2520; // actinfo.steps; // 3000
+		var stepGoal = 10000; // actinfo.stepGoal; //10000;
+						
+		var stepBarWidth = watchWidth * 0.6;
+		var highlightWidth = stepBarWidth * steps / stepGoal;
+		
+		var stepBarY = watchHeight - watchHeight * 0.17 * scaleFactor;
+		
+		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
+		dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
+				
+		if (highlightWidth > stepBarWidth - 4)
+		{
+			highlightWidth = stepBarWidth - 4;
+			dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+		}	
+						
+        dc.fillRectangle(watchWidth * 0.2 + 2, stepBarY + 2, highlightWidth, 14);
+        dc.setColor(foregroundColor, backgroundColor);
     }
 
     // Called when this View is removed from the screen. Save the
