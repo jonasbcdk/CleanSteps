@@ -79,7 +79,7 @@ class CleanStepsView extends Ui.WatchFace {
         dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
         
 		var x = dc.getWidth() / 2;
-		var y = 22 * scaleFactor;
+		var y = 20 * scaleFactor;
     
     	dc.drawLine(x, y, x+6, y+6);
     	dc.drawLine(x+6, y+6, x+3, y+9);
@@ -112,7 +112,7 @@ class CleanStepsView extends Ui.WatchFace {
 				
 				
 		// Draw battery
-		var batteryY = 22 * scaleFactor;
+		var batteryY = 20 * scaleFactor;
 		var batteryX = watchWidth * 0.2;
 		
 		var systemStats = Sys.getSystemStats();
@@ -143,7 +143,7 @@ class CleanStepsView extends Ui.WatchFace {
 
 
 		// Draw notifications count
-		var notificationsY = 22 * scaleFactor;
+		var notificationsY = 20 * scaleFactor;
 		var notificationsX = watchWidth - watchWidth * 0.2;	
 		
 		System.println("notificationsX: " + notificationsX);
@@ -187,13 +187,13 @@ class CleanStepsView extends Ui.WatchFace {
 		// Draw steps
 		var actinfo = Act.getInfo();
 
-		var steps = 2520; // actinfo.steps; // 3000
-		var stepGoal = 10000; // actinfo.stepGoal; //10000;
+		var steps = actinfo.steps; // 3000
+		var stepGoal = actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
 		var highlightWidth = stepBarWidth * steps / stepGoal;
 		
-		var stepBarY = watchHeight - watchHeight * 0.17 * scaleFactor;
+		var stepBarY = watchHeight - watchHeight * 0.15 * scaleFactor;
 		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
 		dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
