@@ -75,6 +75,51 @@ class CleanStepsView extends Ui.WatchFace {
     function onShow() {
     }
 
+    // Update the view
+    function onUpdate(dc) {       	      	
+		// Clear gfx
+		dc.setColor(backgroundColor, backgroundColor);
+		dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
+		
+		// Draw clock
+		drawClock(dc);
+				
+		// Draw battery
+		drawBattery(dc);
+
+		var settings = Sys.getDeviceSettings();
+
+		// Draw notifications count
+		drawNotifications(dc, settings.notificationCount);
+                
+        // Draw bluetooth icon
+        if (settings.phoneConnected) {
+    		drawBluetooth(dc);
+        }
+                
+		// Draw date
+		drawDate(dc);
+							
+		// Draw steps
+		drawSteps(dc);
+    }
+
+    // Called when this View is removed from the screen. Save the
+    // state of this View here. This includes freeing resources from
+    // memory.
+    function onHide() {
+    }
+
+    // The user has just looked at their watch. Timers and animations may be started here.
+    function onExitSleep() {
+    	//System.println("exit sleep");
+    }
+
+    // Terminate any active timers and prepare for slow updates.
+    function onEnterSleep() {
+    	//System.println("enter sleep");
+    }  
+
 	function drawBluetooth(dc) {	
         dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
         
@@ -90,17 +135,9 @@ class CleanStepsView extends Ui.WatchFace {
         dc.setColor(foregroundColor, backgroundColor);
 	}
 
-    // Update the view
-    function onUpdate(dc) {
-       	      	
-		// Clear gfx
-		dc.setColor(backgroundColor, backgroundColor);
-		dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
-
-		
+	function drawClock(dc) {
 		dc.setColor(foregroundColor, backgroundColor);
-		
-		// Draw clock	
+			
 		var time = Util.getCurrentTime();
 			
 		var timeHeight = dc.getTextDimensions(time.minutes, Gfx.FONT_NUMBER_THAI_HOT)[1];
@@ -108,10 +145,10 @@ class CleanStepsView extends Ui.WatchFace {
         var timeString = Lang.format("$1$:$2$", [time.hours, time.minutes]);
         var timeY = watchHeight / 2 - timeHeight / 2 - 13 * scaleFactor;
 				
-		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
-				
-				
-		// Draw battery
+		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);		
+	}
+	
+	function drawBattery(dc) {
 		var batteryY = 20 * scaleFactor;
 		var batteryX = watchWidth * 0.2;
 		
@@ -119,6 +156,8 @@ class CleanStepsView extends Ui.WatchFace {
 		var battery = systemStats.battery;
 		var batteryBarLength = 0.18 * battery;
 
+        dc.setColor(foregroundColor, backgroundColor);
+        
         dc.drawRectangle(batteryX, batteryY, 20, 10);
         dc.drawRectangle(batteryX+20, batteryY + 2, 2, 6);
 		
@@ -137,18 +176,18 @@ class CleanStepsView extends Ui.WatchFace {
         
         var batteryTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
         
-        System.println("batteryTextHeight: " + batteryTextHeight);
+        //System.println("batteryTextHeight: " + batteryTextHeight);
         
         dc.drawText(batteryX + 25, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
+	}
 
-
-		// Draw notifications count
+	function drawNotifications(dc, count) {
+		dc.setColor(foregroundColor, backgroundColor);
+		
 		var notificationsY = 20 * scaleFactor;
 		var notificationsX = watchWidth - watchWidth * 0.2;	
 		
-		System.println("notificationsX: " + notificationsX);
-		
-		var settings = Sys.getDeviceSettings();
+		//System.println("notificationsX: " + notificationsX);
 		
 		dc.drawRectangle(notificationsX - 15, notificationsY, 15, 10);
 		dc.drawLine(notificationsX - 15, notificationsY, notificationsX - 8, notificationsY + 6);
@@ -156,16 +195,12 @@ class CleanStepsView extends Ui.WatchFace {
 
 		var notificationsTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
 
-        dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, settings.notificationCount, Gfx.TEXT_JUSTIFY_RIGHT);
-        
-        
-        // Draw bluetooth icon
-        if (settings.phoneConnected) {
-    		drawBluetooth(dc);
-        }
-        
-        
-		// Draw date
+        dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, count, Gfx.TEXT_JUSTIFY_RIGHT);
+	}
+
+	function drawDate(dc) {
+		dc.setColor(foregroundColor, backgroundColor);
+		
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
 				
 		var weekday = weekdays[dateinfo.day_of_week-1];
@@ -178,13 +213,13 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		var dateY = watchHeight - watchHeight * 0.25 - dateTextHeight;
 				
-		System.println("dateTextHeight: " + dateTextHeight);
+		//System.println("dateTextHeight: " + dateTextHeight);
 		
 		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
-		
-		
-				
-		// Draw steps
+	}
+
+	function drawSteps(dc) {
+		dc.setColor(foregroundColor, backgroundColor);
 		var actinfo = Act.getInfo();
 
 		var steps = actinfo.steps; // 3000
@@ -205,21 +240,6 @@ class CleanStepsView extends Ui.WatchFace {
 		}	
 						
         dc.fillRectangle(watchWidth * 0.2 + 2, stepBarY + 2, highlightWidth, 14);
-        dc.setColor(foregroundColor, backgroundColor);
-    }
-
-    // Called when this View is removed from the screen. Save the
-    // state of this View here. This includes freeing resources from
-    // memory.
-    function onHide() {
-    }
-
-    // The user has just looked at their watch. Timers and animations may be started here.
-    function onExitSleep() {
-    }
-
-    // Terminate any active timers and prepare for slow updates.
-    function onEnterSleep() {
-    }  
+	}
 
 }
