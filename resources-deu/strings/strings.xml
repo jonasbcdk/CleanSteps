@@ -21,4 +21,8 @@
     <string id="Mon9">Okt</string>
     <string id="Mon10">Nov</string>
     <string id="Mon11">Dez</string>
+    <string id="BackgroundColorTitle">Hintergrundfarbe</string>
+    <string id="BackgroundColorPrompt">Farbe auswählen</string>
+    <string id="Black">Schwarz</string>
+    <string id="White">Weiß</string>
 </strings>

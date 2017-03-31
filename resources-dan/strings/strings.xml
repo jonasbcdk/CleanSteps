@@ -20,8 +20,7 @@
     <string id="Mon8">Sep</string>
     <string id="Mon9">Okt</string>
     <string id="Mon10">Nov</string>
-    <string id="Mon11">Dec</string>
-    
+    <string id="Mon11">Dec</string>    
     <string id="BackgroundColorTitle">Baggrundsfarve</string>
     <string id="BackgroundColorPrompt">Vælg baggrundsfarve</string>
     <string id="Black">Sort</string>
