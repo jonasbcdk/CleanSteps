@@ -26,7 +26,15 @@ class CleanStepsView extends Ui.WatchFace {
         		
 		foregroundColor = Gfx.COLOR_WHITE;
 		backgroundColor = Gfx.COLOR_BLACK;
-        
+                
+		// Get background color setting
+		var colorNum = Application.getApp().getProperty("BackgroundColor");
+		
+		if (colorNum == 1) {
+			foregroundColor = Gfx.COLOR_BLACK;
+			backgroundColor = Gfx.COLOR_WHITE;		
+		}
+		
         months = [
 			Ui.loadResource(Rez.Strings.Mon0),
 			Ui.loadResource(Rez.Strings.Mon1),

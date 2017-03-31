@@ -1,0 +1,8 @@
+<settings>
+    <setting propertyKey="@Properties.BackgroundColor" title="@Strings.BackgroundColorTitle" prompt="@Strings.BackgroundColorPrompt">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Black</listEntry>
+            <listEntry value="1">@Strings.White</listEntry>
+        </settingConfig>
+    </setting>
+</settings>
