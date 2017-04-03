@@ -217,13 +217,16 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		var dateText = Lang.format(dateFormat, [weekday, month, date]);
 		
-		var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_SYSTEM_SMALL)[1];
+		//var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_SYSTEM_SMALL)[1];
+		var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_MEDIUM)[1];
 		
-		var dateY = watchHeight - watchHeight * 0.25 - dateTextHeight;
+		//var dateY = watchHeight - watchHeight * 0.25 - dateTextHeight;
+		var dateY = watchHeight - watchHeight * 0.23 - dateTextHeight;
 				
 		//System.println("dateTextHeight: " + dateTextHeight);
 		
-		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+		//dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_MEDIUM, dateText, Gfx.TEXT_JUSTIFY_CENTER);		 
 	}
 
 	function drawSteps(dc) {
