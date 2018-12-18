@@ -5,4 +5,12 @@
             <listEntry value="1">@Strings.White</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.StepsBarColor" title="@Strings.StepsBarColorTitle" prompt="@Strings.StepsBarColorPrompt">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.Green</listEntry>
+            <listEntry value="1">@Strings.Blue</listEntry>
+            <listEntry value="2">@Strings.Red</listEntry>
+            <listEntry value="3">@Strings.Yellow</listEntry>
+        </settingConfig>
+    </setting>
 </settings>

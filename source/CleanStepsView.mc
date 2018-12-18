@@ -242,7 +242,27 @@ class CleanStepsView extends Ui.WatchFace {
 		var stepBarY = watchHeight - watchHeight * 0.15 * scaleFactor;
 		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
-		dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
+		
+		// Get steps bar color setting
+		var colorNum = Application.getApp().getProperty("StepsBarColor");
+		
+		if (colorNum == 0)
+		{
+			dc.setColor(Gfx.COLOR_GREEN, backgroundColor);		
+		}
+		else if (colorNum == 1)
+		{
+			dc.setColor(Gfx.COLOR_BLUE, backgroundColor);		
+		}
+		else if (colorNum == 2)
+		{
+			dc.setColor(Gfx.COLOR_RED, backgroundColor);		
+		}
+		else if (colorNum == 3)
+		{
+			dc.setColor(Gfx.COLOR_YELLOW, backgroundColor);		
+		}
+				
 				
 		if (highlightWidth > stepBarWidth - 4)
 		{
