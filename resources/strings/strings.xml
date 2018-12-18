@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Select background color</string>
     <string id="Black">Black</string>
     <string id="White">White</string>
+    <string id="Blue">Blue</string>
+    <string id="Green">Green</string>
+    <string id="Red">Red</string>
+    <string id="Yellow">Yellow</string>
+    <string id="StepsBarColorTitle">Steps bar color</string>
+    <string id="StepsBarColorPrompt">Select steps bar color</string>
 </strings>
