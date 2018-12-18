@@ -1,0 +1,28 @@
+<strings>
+    <string id="AppName">CleanSteps</string>
+    <string id="lang">spa</string>
+    <string id="DateFormat">$1$, $3$ de $2$</string>
+    <string id="Day0">Lu</string>
+    <string id="Day1">Ma</string>
+    <string id="Day2">Mi</string>
+    <string id="Day3">Ju</string>
+    <string id="Day4">Vi</string>
+    <string id="Day5">Sa</string>
+    <string id="Day6">Do</string>
+    <string id="Mon0">ene</string>
+    <string id="Mon1">feb</string>
+    <string id="Mon2">mar</string>
+    <string id="Mon3">abr</string>
+    <string id="Mon4">may</string>
+    <string id="Mon5">jun</string>
+    <string id="Mon6">jul</string>
+    <string id="Mon7">ago</string>
+    <string id="Mon8">set</string>
+    <string id="Mon9">oct</string>
+    <string id="Mon10">nov</string>
+    <string id="Mon11">dic</string>
+    <string id="BackgroundColorTitle">Color de fondo</string>
+    <string id="BackgroundColorPrompt">Elige un color de fondo</string>
+    <string id="Black">Negro</string>
+    <string id="White">Blanco</string>
+</strings>
