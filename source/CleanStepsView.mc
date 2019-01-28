@@ -166,6 +166,10 @@ class CleanStepsView extends Ui.WatchFace {
 
         dc.setColor(foregroundColor, backgroundColor);
         
+        /*if (systemStats.charging) { // later SDK
+			dc.setColor(Gfx.COLOR_GREEN);        	
+        }*/
+                
         dc.drawRectangle(batteryX, batteryY, 20, 10);
         dc.drawRectangle(batteryX+20, batteryY + 2, 2, 6);
 		
@@ -207,7 +211,7 @@ class CleanStepsView extends Ui.WatchFace {
 	}
 
 	function drawDate(dc) {
-		dc.setColor(foregroundColor, backgroundColor);
+		dc.setColor(foregroundColor, Gfx.COLOR_TRANSPARENT);
 		
 		var dateinfo = Greg.info(Time.now(), Time.FORMAT_SHORT);
 				
