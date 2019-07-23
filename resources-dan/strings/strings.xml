@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Vælg baggrundsfarve</string>
     <string id="Black">Sort</string>
     <string id="White">Hvid</string>
+    <string id="Blue">Blå</string>
+    <string id="Green">Grøn</string>
+    <string id="Red">Rød</string>
+    <string id="Yellow">Gul</string>
+    <string id="StepsBarColorTitle">Antal skridt bar farve</string>
+    <string id="StepsBarColorPrompt">Vælg farve</string>
 </strings>

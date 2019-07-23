@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Välj bakgrundsfärg</string>
     <string id="Black">Svart</string>
     <string id="White">Vit</string>
+    <string id="Blue">Blå</string>
+    <string id="Green">Grön</string>
+    <string id="Red">Röd</string>
+    <string id="Yellow">Gul</string>
+    <string id="StepsBarColorTitle">Steg bar färg</string>
+    <string id="StepsBarColorPrompt">Välj stegbar färg</string>
 </strings>

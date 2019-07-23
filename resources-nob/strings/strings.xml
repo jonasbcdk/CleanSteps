@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Velg bakgrunnsfarge</string>
     <string id="Black">Svart</string>
     <string id="White">Hvit</string>
+    <string id="Blue">Blå</string>
+    <string id="Green">Grønn</string>
+    <string id="Red">Rød</string>
+    <string id="Yellow">Gul</string>
+    <string id="StepsBarColorTitle">Trinn bar farge</string>
+    <string id="StepsBarColorPrompt">Velg farge på trinnlinjen</string>
 </strings>

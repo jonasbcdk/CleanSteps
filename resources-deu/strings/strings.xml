@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Farbe auswählen</string>
     <string id="Black">Schwarz</string>
     <string id="White">Weiß</string>
+    <string id="Blue">Blau</string>
+    <string id="Green">Grün</string>
+    <string id="Red">Rot</string>
+    <string id="Yellow">Gelb</string>
+    <string id="StepsBarColorTitle">Farbe der Stufenleiste</string>
+    <string id="StepsBarColorPrompt">Wählen Sie die Farbe der Stufenleiste</string>
 </strings>

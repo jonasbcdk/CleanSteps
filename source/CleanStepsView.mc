@@ -73,8 +73,8 @@ class CleanStepsView extends Ui.WatchFace {
 				
 		scaleFactor = watchHeight / 180.0;
 		
-		//System.println("height: " + watchHeight);
-		//System.println("scaleFactor: " + scaleFactor);
+		System.println("watch height: " + watchHeight);
+		System.println("scaleFactor: " + scaleFactor);
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -133,7 +133,7 @@ class CleanStepsView extends Ui.WatchFace {
         
 		var x = dc.getWidth() / 2;
 		var y = 20 * scaleFactor;
-    
+        
     	dc.drawLine(x, y, x+6, y+6);
     	dc.drawLine(x+6, y+6, x+3, y+9);
     	dc.drawLine(x+3, y+9, x+3, y-3);
@@ -150,10 +150,23 @@ class CleanStepsView extends Ui.WatchFace {
 			
 		var timeHeight = dc.getTextDimensions(time.minutes, Gfx.FONT_NUMBER_THAI_HOT)[1];
 		
+		System.println("timeHeight: " + timeHeight);
+		
         var timeString = Lang.format("$1$:$2$", [time.hours, time.minutes]);
         var timeY = watchHeight / 2 - timeHeight / 2 - 13 * scaleFactor;
 				
-		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);		
+		System.println("timeY: " + timeY);
+		System.println("watchWidth: " + watchWidth);
+		
+		// FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+    	}
+		else
+		{
+			dc.drawText(watchWidth / 2, timeY, Gfx.FONT_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+		}		
 	}
 	
 	function drawBattery(dc) {
@@ -190,6 +203,12 @@ class CleanStepsView extends Ui.WatchFace {
         
         //System.println("batteryTextHeight: " + batteryTextHeight);
         
+        // FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		batteryY = batteryY + 5;
+    	}
+        
         dc.drawText(batteryX + 25, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
 	}
 
@@ -206,6 +225,12 @@ class CleanStepsView extends Ui.WatchFace {
 		dc.drawLine(notificationsX - 8, notificationsY + 6, notificationsX, notificationsY);
 
 		var notificationsTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
+
+		// FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		notificationsY = notificationsY + 5;
+    	}
 
         dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, count, Gfx.TEXT_JUSTIFY_RIGHT);
 	}

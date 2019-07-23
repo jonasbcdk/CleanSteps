@@ -25,4 +25,10 @@
     <string id="BackgroundColorPrompt">Selecione a cor de fundo</string>
     <string id="Black">Preto</string>
     <string id="White">Branco</string>
+    <string id="Blue">Azul</string>
+    <string id="Green">Verde</string>
+    <string id="Red">Vermelho</string>
+    <string id="Yellow">Amarelo</string>
+    <string id="StepsBarColorTitle">Cor da barra de passos</string>
+    <string id="StepsBarColorPrompt">Selecione a cor da barra de etapas</string>
 </strings>
