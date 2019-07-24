@@ -1,0 +1,34 @@
+<strings>
+    <string id="AppName">CleanSteps</string>
+    <string id="lang">pl</string>
+    <string id="DateFormat">$1$, $3$. $2$</string>
+    <string id="Day0">Nie</string>
+    <string id="Day1">Pon</string>
+    <string id="Day2">Wto</string>
+    <string id="Day3">Sro</string>
+    <string id="Day4">Czw</string>
+    <string id="Day5">Pia</string>
+    <string id="Day6">Sob</string>
+    <string id="Mon0">Sty</string>
+    <string id="Mon1">Lut</string>
+    <string id="Mon2">Mar</string>
+    <string id="Mon3">Kwi</string>
+    <string id="Mon4">Maj</string>
+    <string id="Mon5">Cze</string>
+    <string id="Mon6">Lip</string>
+    <string id="Mon7">Sie</string>
+    <string id="Mon8">Wrz</string>
+    <string id="Mon9">Paz</string>
+    <string id="Mon10">Lis</string>
+    <string id="Mon11">Gru</string>    
+    <string id="BackgroundColorTitle">Kolor tła</string>
+    <string id="BackgroundColorPrompt">Wybierz kolor tła</string>
+    <string id="Black">czarny</string>
+    <string id="White">biały</string>
+    <string id="Blue">niebieski</string>
+    <string id="Green">zielony</string>
+    <string id="Red">czerwony</string>
+    <string id="Yellow">żółty</string>
+    <string id="StepsBarColorTitle">Liczba kolorów paska kroków</string>
+    <string id="StepsBarColorPrompt">Wybierz kolor</string>
+</strings>
