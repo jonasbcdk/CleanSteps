@@ -20,6 +20,7 @@ class CleanStepsView extends Ui.WatchFace {
 	var backgroundColor;
 	
     var scaleFactor;
+	var arialFont;
 	
     function initialize() {
         WatchFace.initialize();
@@ -62,6 +63,8 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		dateFormat = Ui.loadResource(Rez.Strings.DateFormat);
 		lang = Ui.loadResource(Rez.Strings.lang);
+		
+		arialFont = Ui.loadResource(Rez.Fonts.arial);
     }
 
     // Load your resources here
@@ -161,7 +164,11 @@ class CleanStepsView extends Ui.WatchFace {
 		// FR45 fix
     	if (watchHeight == 208)
     	{
-    		dc.drawText(watchWidth / 2, timeY, Gfx.FONT_SYSTEM_NUMBER_THAI_HOT, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+    		//Gfx.FONT_LARGE works on FR45
+    		//Gfx.FONT_NUMBER_HOT doesn't!
+    		//Gfx.FONT_NUMBER_THAI_HOT doesn't!
+    		//Gfx.FONT_SYSTEM_NUMBER_THAI_HOT doesn't!
+    		dc.drawText(watchWidth / 2, 50, arialFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     	}
 		else
 		{
@@ -206,7 +213,7 @@ class CleanStepsView extends Ui.WatchFace {
         // FR45 fix
     	if (watchHeight == 208)
     	{
-    		batteryY = batteryY + 5;
+    		batteryY = batteryY + 10;
     	}
         
         dc.drawText(batteryX + 25, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
@@ -229,7 +236,7 @@ class CleanStepsView extends Ui.WatchFace {
 		// FR45 fix
     	if (watchHeight == 208)
     	{
-    		notificationsY = notificationsY + 5;
+    		notificationsY = notificationsY + 10;
     	}
 
         dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, count, Gfx.TEXT_JUSTIFY_RIGHT);
@@ -254,8 +261,16 @@ class CleanStepsView extends Ui.WatchFace {
 				
 		//System.println("dateTextHeight: " + dateTextHeight);
 		
-		//dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
-		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_MEDIUM, dateText, Gfx.TEXT_JUSTIFY_CENTER);		 
+		// FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_LARGE, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+    	}
+    	else
+    	{
+			//dc.drawText(watchWidth / 2, dateY, Gfx.FONT_SYSTEM_SMALL, dateText, Gfx.TEXT_JUSTIFY_CENTER);
+			dc.drawText(watchWidth / 2, dateY, Gfx.FONT_MEDIUM, dateText, Gfx.TEXT_JUSTIFY_CENTER);    	
+    	}		 
 	}
 
 	function drawSteps(dc) {
