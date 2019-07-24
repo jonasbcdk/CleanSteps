@@ -168,7 +168,7 @@ class CleanStepsView extends Ui.WatchFace {
     		//Gfx.FONT_NUMBER_HOT doesn't!
     		//Gfx.FONT_NUMBER_THAI_HOT doesn't!
     		//Gfx.FONT_SYSTEM_NUMBER_THAI_HOT doesn't!
-    		dc.drawText(watchWidth / 2, 50, arialFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+    		dc.drawText(watchWidth / 2, 40, arialFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     	}
 		else
 		{
@@ -179,6 +179,12 @@ class CleanStepsView extends Ui.WatchFace {
 	function drawBattery(dc) {
 		var batteryY = 20 * scaleFactor;
 		var batteryX = watchWidth * 0.2;
+		
+		// Vivoactive HR fix
+    	if (watchWidth == 148)
+    	{
+			batteryX = 20;
+		}
 		
 		var systemStats = Sys.getSystemStats();
 		var battery = systemStats.battery;
@@ -225,7 +231,11 @@ class CleanStepsView extends Ui.WatchFace {
 		var notificationsY = 20 * scaleFactor;
 		var notificationsX = watchWidth - watchWidth * 0.2;	
 		
-		//System.println("notificationsX: " + notificationsX);
+		// Vivoactive HR fix
+    	if (watchWidth == 148)
+    	{
+			notificationsX = 148 - 20;
+		}
 		
 		dc.drawRectangle(notificationsX - 15, notificationsY, 15, 10);
 		dc.drawLine(notificationsX - 15, notificationsY, notificationsX - 8, notificationsY + 6);
@@ -281,6 +291,7 @@ class CleanStepsView extends Ui.WatchFace {
 		var stepGoal = actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
+				
 		var highlightWidth = stepBarWidth * steps / stepGoal;
 		
 		var stepBarY = watchHeight - watchHeight * 0.15 * scaleFactor;
