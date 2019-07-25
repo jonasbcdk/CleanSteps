@@ -5,9 +5,9 @@
     <string id="Day0">Nie</string>
     <string id="Day1">Pon</string>
     <string id="Day2">Wto</string>
-    <string id="Day3">Sro</string>
+    <string id="Day3">Śro</string>
     <string id="Day4">Czw</string>
-    <string id="Day5">Pia</string>
+    <string id="Day5">Pią</string>
     <string id="Day6">Sob</string>
     <string id="Mon0">Sty</string>
     <string id="Mon1">Lut</string>
@@ -18,7 +18,7 @@
     <string id="Mon6">Lip</string>
     <string id="Mon7">Sie</string>
     <string id="Mon8">Wrz</string>
-    <string id="Mon9">Paz</string>
+    <string id="Mon9">Paź</string>
     <string id="Mon10">Lis</string>
     <string id="Mon11">Gru</string>    
     <string id="BackgroundColorTitle">Kolor tła</string>

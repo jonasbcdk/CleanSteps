@@ -20,7 +20,8 @@ class CleanStepsView extends Ui.WatchFace {
 	var backgroundColor;
 	
     var scaleFactor;
-	var arialFont;
+	//var arialFont;
+	var robotoFont;
 	
     function initialize() {
         WatchFace.initialize();
@@ -64,7 +65,8 @@ class CleanStepsView extends Ui.WatchFace {
 		dateFormat = Ui.loadResource(Rez.Strings.DateFormat);
 		lang = Ui.loadResource(Rez.Strings.lang);
 		
-		arialFont = Ui.loadResource(Rez.Fonts.arial);
+		//arialFont = Ui.loadResource(Rez.Fonts.arial);
+		robotoFont = Ui.loadResource(Rez.Fonts.roboto);
     }
 
     // Load your resources here
@@ -168,7 +170,7 @@ class CleanStepsView extends Ui.WatchFace {
     		//Gfx.FONT_NUMBER_HOT doesn't!
     		//Gfx.FONT_NUMBER_THAI_HOT doesn't!
     		//Gfx.FONT_SYSTEM_NUMBER_THAI_HOT doesn't!
-    		dc.drawText(watchWidth / 2, 40, arialFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+    		dc.drawText(watchWidth / 2, 50, robotoFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     	}
 		else
 		{
