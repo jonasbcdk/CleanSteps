@@ -139,6 +139,12 @@ class CleanStepsView extends Ui.WatchFace {
 		var x = dc.getWidth() / 2;
 		var y = 20 * scaleFactor;
         
+        // FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		x = x + 5;
+    	}
+        
     	dc.drawLine(x, y, x+6, y+6);
     	dc.drawLine(x+6, y+6, x+3, y+9);
     	dc.drawLine(x+3, y+9, x+3, y-3);
@@ -170,7 +176,7 @@ class CleanStepsView extends Ui.WatchFace {
     		//Gfx.FONT_NUMBER_HOT doesn't!
     		//Gfx.FONT_NUMBER_THAI_HOT doesn't!
     		//Gfx.FONT_SYSTEM_NUMBER_THAI_HOT doesn't!
-    		dc.drawText(watchWidth / 2, 50, robotoFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
+    		dc.drawText(watchWidth / 2, 45, robotoFont, timeString, Gfx.TEXT_JUSTIFY_CENTER);
     	}
 		else
 		{
@@ -219,10 +225,10 @@ class CleanStepsView extends Ui.WatchFace {
         //System.println("batteryTextHeight: " + batteryTextHeight);
         
         // FR45 fix
-    	if (watchHeight == 208)
-    	{
-    		batteryY = batteryY + 10;
-    	}
+    	//if (watchHeight == 208)
+    	//{
+    	//	batteryY = batteryY + 10;
+    	//}
         
         dc.drawText(batteryX + 25, batteryY - batteryTextHeight * 0.3, Gfx.FONT_XTINY, battery.format("%d") + "%", Gfx.TEXT_JUSTIFY_LEFT);
 	}
@@ -246,10 +252,10 @@ class CleanStepsView extends Ui.WatchFace {
 		var notificationsTextHeight = dc.getTextDimensions("0", Gfx.FONT_XTINY)[1];
 
 		// FR45 fix
-    	if (watchHeight == 208)
-    	{
-    		notificationsY = notificationsY + 10;
-    	}
+    	//if (watchHeight == 208)
+    	//{
+    	//	notificationsY = notificationsY + 10;
+    	//}
 
         dc.drawText(notificationsX - 20, notificationsY - notificationsTextHeight * 0.3, Gfx.FONT_XTINY, count, Gfx.TEXT_JUSTIFY_RIGHT);
 	}
@@ -276,6 +282,8 @@ class CleanStepsView extends Ui.WatchFace {
 		// FR45 fix
     	if (watchHeight == 208)
     	{
+    		dateY = dateY - 5;
+    	
     		dc.drawText(watchWidth / 2, dateY, Gfx.FONT_LARGE, dateText, Gfx.TEXT_JUSTIFY_CENTER);
     	}
     	else
@@ -298,6 +306,12 @@ class CleanStepsView extends Ui.WatchFace {
 		
 		var stepBarY = watchHeight - watchHeight * 0.15 * scaleFactor;
 		
+		// FR45 fix
+    	if (watchHeight == 208)
+    	{
+    		stepBarY = stepBarY - 2;
+    	}
+		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
 		
 		// Get steps bar color setting
@@ -318,8 +332,7 @@ class CleanStepsView extends Ui.WatchFace {
 		else if (colorNum == 3)
 		{
 			dc.setColor(Gfx.COLOR_YELLOW, backgroundColor);		
-		}
-				
+		}				
 				
 		if (highlightWidth > stepBarWidth - 4)
 		{
