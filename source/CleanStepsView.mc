@@ -337,7 +337,11 @@ class CleanStepsView extends Ui.WatchFace {
 		if (highlightWidth > stepBarWidth - 4)
 		{
 			highlightWidth = stepBarWidth - 4;
-			dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+			
+			if (steps > stepGoal)
+			{
+				dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+			}
 		}	
 						
         dc.fillRectangle(watchWidth * 0.2 + 2, stepBarY + 2, highlightWidth, 14);
