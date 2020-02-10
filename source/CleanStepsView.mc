@@ -297,8 +297,10 @@ class CleanStepsView extends Ui.WatchFace {
 		dc.setColor(foregroundColor, backgroundColor);
 		var actinfo = Act.getInfo();
 
-		var steps = actinfo.steps; // 3000
-		var stepGoal = actinfo.stepGoal; //10000;
+		System.println("watchHeight: " + watchHeight);
+
+		var steps = 3000; //actinfo.steps; // 3000
+		var stepGoal = 10000; // actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
 				
@@ -310,6 +312,12 @@ class CleanStepsView extends Ui.WatchFace {
     	if (watchHeight == 208)
     	{
     		stepBarY = stepBarY - 2;
+    	}
+		
+		// Venu fix
+		if (watchHeight == 390)
+		{
+    		stepBarY = stepBarY + 60;
     	}
 		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
