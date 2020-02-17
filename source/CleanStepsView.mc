@@ -20,7 +20,6 @@ class CleanStepsView extends Ui.WatchFace {
 	var backgroundColor;
 	
     var scaleFactor;
-	//var arialFont;
 	var robotoFont;
 	
     function initialize() {
@@ -65,7 +64,6 @@ class CleanStepsView extends Ui.WatchFace {
 		dateFormat = Ui.loadResource(Rez.Strings.DateFormat);
 		lang = Ui.loadResource(Rez.Strings.lang);
 		
-		//arialFont = Ui.loadResource(Rez.Fonts.arial);
 		robotoFont = Ui.loadResource(Rez.Fonts.roboto);
     }
 
@@ -79,6 +77,7 @@ class CleanStepsView extends Ui.WatchFace {
 		scaleFactor = watchHeight / 180.0;
 		
 		System.println("watch height: " + watchHeight);
+		System.println("watch width: " + watchWidth);
 		System.println("scaleFactor: " + scaleFactor);
     }
 
@@ -161,13 +160,13 @@ class CleanStepsView extends Ui.WatchFace {
 			
 		var timeHeight = dc.getTextDimensions(time.minutes, Gfx.FONT_NUMBER_THAI_HOT)[1];
 		
-		System.println("timeHeight: " + timeHeight);
+		//System.println("timeHeight: " + timeHeight);
 		
         var timeString = Lang.format("$1$:$2$", [time.hours, time.minutes]);
         var timeY = watchHeight / 2 - timeHeight / 2 - 13 * scaleFactor;
 				
-		System.println("timeY: " + timeY);
-		System.println("watchWidth: " + watchWidth);
+		//System.println("timeY: " + timeY);
+		//System.println("watchWidth: " + watchWidth);
 		
 		// FR45 fix
     	if (watchHeight == 208)
@@ -318,6 +317,20 @@ class CleanStepsView extends Ui.WatchFace {
 		if (watchHeight == 390)
 		{
     		stepBarY = stepBarY + 60;
+    	}
+    	
+    	var showStepsAsText = Application.getApp().getProperty("StepsAsText");
+    	
+    	if (showStepsAsText)
+    	{
+    		if (steps > stepGoal)
+			{
+				dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+			}
+			
+			dc.drawText(watchWidth * 0.5, stepBarY, Gfx.FONT_SYSTEM_SMALL, steps, Gfx.TEXT_JUSTIFY_CENTER);
+			
+			return;    	
     	}
 		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);

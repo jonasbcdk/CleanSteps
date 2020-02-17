@@ -31,4 +31,5 @@
     <string id="Yellow">Gelb</string>
     <string id="StepsBarColorTitle">Farbe der Stufenleiste</string>
     <string id="StepsBarColorPrompt">Wählen Sie die Farbe der Stufenleiste</string>
+    <string id="StepsAsTextTitle">Schritte als Text anzeigen</string>
 </strings>

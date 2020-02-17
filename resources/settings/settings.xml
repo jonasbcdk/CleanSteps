@@ -12,5 +12,8 @@
             <listEntry value="2">@Strings.Red</listEntry>
             <listEntry value="3">@Strings.Yellow</listEntry>
         </settingConfig>
+    </setting>    
+    <setting propertyKey="@Properties.StepsAsText" title="@Strings.StepsAsTextTitle">
+        <settingConfig type="boolean" />
     </setting>
 </settings>

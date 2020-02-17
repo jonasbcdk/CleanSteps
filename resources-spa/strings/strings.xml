@@ -31,4 +31,5 @@
     <string id="Yellow">Amarillo</string>
     <string id="StepsBarColorTitle">Color de la barra de pasos</string>
     <string id="StepsBarColorPrompt">Selecciona el color de la barra de pasos</string>
+    <string id="StepsAsTextTitle">Mostrar pasos como texto</string>
 </strings>

@@ -31,4 +31,5 @@
     <string id="Yellow">Gul</string>
     <string id="StepsBarColorTitle">Steg bar färg</string>
     <string id="StepsBarColorPrompt">Välj stegbar färg</string>
+    <string id="StepsAsTextTitle">Visa steg som text</string>
 </strings>

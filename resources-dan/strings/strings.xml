@@ -31,4 +31,5 @@
     <string id="Yellow">Gul</string>
     <string id="StepsBarColorTitle">Antal skridt bar farve</string>
     <string id="StepsBarColorPrompt">Vælg farve</string>
+    <string id="StepsAsTextTitle">Vis skridt som tekst</string>
 </strings>
