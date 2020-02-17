@@ -297,10 +297,10 @@ class CleanStepsView extends Ui.WatchFace {
 		dc.setColor(foregroundColor, backgroundColor);
 		var actinfo = Act.getInfo();
 
-		System.println("watchHeight: " + watchHeight);
+		//System.println("watchHeight: " + watchHeight);
 
-		var steps = 3000; //actinfo.steps; // 3000
-		var stepGoal = 10000; // actinfo.stepGoal; //10000;
+		var steps = actinfo.steps; // 3000
+		var stepGoal = actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
 				
