@@ -1,0 +1,35 @@
+<strings>
+    <string id="AppName">CleanSteps</string>
+    <string id="lang">ita</string>
+    <string id="DateFormat">$1$ $3$ $2$</string>
+    <string id="Day0">dom</string>
+    <string id="Day1">lun</string>
+    <string id="Day2">mar</string>
+    <string id="Day3">mer</string>
+    <string id="Day4">gio</string>
+    <string id="Day5">ven</string>
+    <string id="Day6">sab</string>
+    <string id="Mon0">gen</string>
+    <string id="Mon1">feb</string>
+    <string id="Mon2">mar</string>
+    <string id="Mon3">apr</string>
+    <string id="Mon4">mag</string>
+    <string id="Mon5">giu</string>
+    <string id="Mon6">lug</string>
+    <string id="Mon7">ago</string>
+    <string id="Mon8">set</string>
+    <string id="Mon9">ott</string>
+    <string id="Mon10">nov</string>
+    <string id="Mon11">dic</string>
+    <string id="BackgroundColorTitle">Colore di sfondo</string>
+    <string id="BackgroundColorPrompt">Seleziona il colore di sfondo</string>
+    <string id="Black">Nera</string>
+    <string id="White">Bianca</string>
+    <string id="Blue">Blu</string>
+    <string id="Green">Verde</string>
+    <string id="Red">Rossa</string>
+    <string id="Yellow">Gialla</string>
+    <string id="StepsBarColorTitle">Colore della barra dei passaggi</string>
+    <string id="StepsBarColorPrompt">Seleziona il colore della barra dei passaggi</string>
+    <string id="StepsAsTextTitle">Mostra i passaggi come testo</string>
+</strings>
