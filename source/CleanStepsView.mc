@@ -65,6 +65,8 @@ class CleanStepsView extends Ui.WatchFace {
 		lang = Ui.loadResource(Rez.Strings.lang);
 		
 		robotoFont = Ui.loadResource(Rez.Fonts.roboto);
+		
+		//System.println("Language: " + lang);
     }
 
     // Load your resources here
@@ -101,11 +103,17 @@ class CleanStepsView extends Ui.WatchFace {
 
 		var settings = Sys.getDeviceSettings();
 
-		// Draw notifications count
-		drawNotifications(dc, settings.notificationCount);
+    	var showNotifications = Application.getApp().getProperty("ShowNotifications");
+    	var showBluetoothIcon = Application.getApp().getProperty("ShowBluetoothIcon");
+    	
+    	if (showNotifications)
+    	{
+			// Draw notifications count
+			drawNotifications(dc, settings.notificationCount);
+        }
                 
         // Draw bluetooth icon
-        if (settings.phoneConnected) {
+        if (showBluetoothIcon && settings.phoneConnected) {
     		drawBluetooth(dc);
         }
                 
@@ -298,7 +306,7 @@ class CleanStepsView extends Ui.WatchFace {
 
 		//System.println("watchHeight: " + watchHeight);
 
-		var steps = actinfo.steps; // 3000
+		var steps = 3000;//actinfo.steps; // 3000
 		var stepGoal = actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;

@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Liczba kolorów paska kroków</string>
     <string id="StepsBarColorPrompt">Wybierz kolor</string>
     <string id="StepsAsTextTitle">Pokaż kroki jako tekst</string>
+    <string id="ShowBluetoothIconTitle">Pokaż ikonę Bluetooth</string>
+    <string id="ShowNotificationsTitle">Pokaż powiadomienia</string>
 </strings>

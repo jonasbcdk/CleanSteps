@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Farbe der Stufenleiste</string>
     <string id="StepsBarColorPrompt">Wählen Sie die Farbe der Stufenleiste</string>
     <string id="StepsAsTextTitle">Schritte als Text anzeigen</string>
+    <string id="ShowBluetoothIconTitle">Bluetooth-Symbol anzeigen</string>
+    <string id="ShowNotificationsTitle">Zeige Benachrichtigungen</string>
 </strings>

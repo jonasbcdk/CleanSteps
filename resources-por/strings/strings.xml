@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Cor da barra de passos</string>
     <string id="StepsBarColorPrompt">Selecione a cor da barra de etapas</string>
     <string id="StepsAsTextTitle">Mostrar etapas como texto</string>
+    <string id="ShowBluetoothIconTitle">Mostrar ícone bluetooth</string>
+    <string id="ShowNotificationsTitle">Mostrar notificações</string>
 </strings>

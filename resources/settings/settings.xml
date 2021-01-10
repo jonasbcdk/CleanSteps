@@ -15,5 +15,11 @@
     </setting>    
     <setting propertyKey="@Properties.StepsAsText" title="@Strings.StepsAsTextTitle">
         <settingConfig type="boolean" />
+    </setting>    
+    <setting propertyKey="@Properties.ShowBluetoothIcon" title="@Strings.ShowBluetoothIconTitle">
+        <settingConfig type="boolean" />
+    </setting>    
+    <setting propertyKey="@Properties.ShowNotifications" title="@Strings.ShowNotificationsTitle">
+        <settingConfig type="boolean" />
     </setting>
 </settings>

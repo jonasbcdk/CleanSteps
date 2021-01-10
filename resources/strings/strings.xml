@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Steps bar color</string>
     <string id="StepsBarColorPrompt">Select steps bar color</string>
     <string id="StepsAsTextTitle">Show steps as text</string>
+    <string id="ShowBluetoothIconTitle">Show bluetooth icon</string>
+    <string id="ShowNotificationsTitle">Show notifications</string>
 </strings>

@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Antal skridt bar farve</string>
     <string id="StepsBarColorPrompt">Vælg farve</string>
     <string id="StepsAsTextTitle">Vis skridt som tekst</string>
+    <string id="ShowBluetoothIconTitle">Vis bluetooth ikon</string>
+    <string id="ShowNotificationsTitle">Vis notifikationer</string>
 </strings>

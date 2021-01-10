@@ -32,4 +32,6 @@
     <string id="StepsBarColorTitle">Trinn bar farge</string>
     <string id="StepsBarColorPrompt">Velg farge på trinnlinjen</string>
     <string id="StepsAsTextTitle">Vis trinn som tekst</string>
+    <string id="ShowBluetoothIconTitle">Vis Bluetooth-ikonet</string>
+    <string id="ShowNotificationsTitle">Vis varsler</string>
 </strings>
