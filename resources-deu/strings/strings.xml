@@ -34,4 +34,6 @@
     <string id="StepsAsTextTitle">Schritte als Text anzeigen</string>
     <string id="ShowBluetoothIconTitle">Bluetooth-Symbol anzeigen</string>
     <string id="ShowNotificationsTitle">Zeige Benachrichtigungen</string>
+    <string id="ClockColorTitle">Uhrenfarbe</string>
+    <string id="ClockColorPrompt">Uhrfarbe auswählen</string>
 </strings>

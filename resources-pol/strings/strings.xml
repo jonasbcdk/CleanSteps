@@ -34,4 +34,6 @@
     <string id="StepsAsTextTitle">Pokaż kroki jako tekst</string>
     <string id="ShowBluetoothIconTitle">Pokaż ikonę Bluetooth</string>
     <string id="ShowNotificationsTitle">Pokaż powiadomienia</string>
+    <string id="ClockColorTitle">Kolor zegara</string>
+    <string id="ClockColorPrompt">Wybierz kolor zegara</string>
 </strings>

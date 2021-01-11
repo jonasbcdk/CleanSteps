@@ -1,5 +1,6 @@
 <properties>
     <property id="BackgroundColor" type="number">0</property>
+    <property id="ClockColor" type="number">0</property>
     <property id="StepsBarColor" type="number">0</property>
     <property id="StepsAsText" type="boolean">false</property>
     <property id="ShowBluetoothIcon" type="boolean">true</property>    

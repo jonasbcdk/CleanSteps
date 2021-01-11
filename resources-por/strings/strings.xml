@@ -34,4 +34,6 @@
     <string id="StepsAsTextTitle">Mostrar etapas como texto</string>
     <string id="ShowBluetoothIconTitle">Mostrar ícone bluetooth</string>
     <string id="ShowNotificationsTitle">Mostrar notificações</string>
+    <string id="ClockColorTitle">Cor do relógio</string>
+    <string id="ClockColorPrompt">Selecione a cor do relógio</string>
 </strings>

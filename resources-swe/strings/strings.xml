@@ -32,6 +32,8 @@
     <string id="StepsBarColorTitle">Steg bar färg</string>
     <string id="StepsBarColorPrompt">Välj stegbar färg</string>
     <string id="StepsAsTextTitle">Visa steg som text</string>
-    <string id="ShowBluetoothIconTitle">Mostrar ícone bluetooth</string>
-    <string id="ShowNotificationsTitle">Mostrar notificações</string>
+    <string id="ShowBluetoothIconTitle">Visa Bluetooth-ikon</string>
+    <string id="ShowNotificationsTitle">Visa notifikationer</string>
+    <string id="ClockColorTitle">Klockans färg</string>
+    <string id="ClockColorPrompt">Välj klockfärg</string>
 </strings>

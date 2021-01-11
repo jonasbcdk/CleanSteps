@@ -176,6 +176,30 @@ class CleanStepsView extends Ui.WatchFace {
 		//System.println("timeY: " + timeY);
 		//System.println("watchWidth: " + watchWidth);
 		
+		var clockColorNum = Application.getApp().getProperty("ClockColor");
+		
+		switch (clockColorNum)
+		{
+			case 0:
+				dc.setColor(Gfx.COLOR_WHITE, backgroundColor);
+				break;
+			case 1:
+				dc.setColor(Gfx.COLOR_BLACK, backgroundColor);
+				break;
+			case 2:
+				dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
+				break;
+			case 3:
+				dc.setColor(Gfx.COLOR_BLUE, backgroundColor);
+				break;
+			case 4:
+				dc.setColor(Gfx.COLOR_RED, backgroundColor);
+				break;
+			case 5:
+				dc.setColor(Gfx.COLOR_YELLOW, backgroundColor);
+				break;
+		}
+		
 		// FR45 fix
     	if (watchHeight == 208)
     	{

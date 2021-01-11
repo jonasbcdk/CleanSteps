@@ -34,4 +34,6 @@
     <string id="StepsAsTextTitle">Show steps as text</string>
     <string id="ShowBluetoothIconTitle">Show bluetooth icon</string>
     <string id="ShowNotificationsTitle">Show notifications</string>
+    <string id="ClockColorTitle">Clock color</string>
+    <string id="ClockColorPrompt">Select clock color</string>
 </strings>

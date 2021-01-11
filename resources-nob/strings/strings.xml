@@ -34,4 +34,6 @@
     <string id="StepsAsTextTitle">Vis trinn som tekst</string>
     <string id="ShowBluetoothIconTitle">Vis Bluetooth-ikonet</string>
     <string id="ShowNotificationsTitle">Vis varsler</string>
+    <string id="ClockColorTitle">Klokkefarge</string>
+    <string id="ClockColorPrompt">Velg klokkefarge</string>
 </strings>
