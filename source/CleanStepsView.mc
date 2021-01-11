@@ -330,7 +330,7 @@ class CleanStepsView extends Ui.WatchFace {
 
 		//System.println("watchHeight: " + watchHeight);
 
-		var steps = 3000;//actinfo.steps; // 3000
+		var steps = actinfo.steps; // 3000
 		var stepGoal = actinfo.stepGoal; //10000;
 						
 		var stepBarWidth = watchWidth * 0.6;
