@@ -94,6 +94,12 @@ class CleanStepsView extends Ui.WatchFace {
 		// Clear gfx
 		dc.setColor(backgroundColor, backgroundColor);
 		dc.fillRectangle(0, 0, dc.getWidth(), dc.getHeight());
+		               
+		// Draw steps
+		drawSteps(dc);
+		 
+		// Draw date
+		drawDate(dc);
 		
 		// Draw clock
 		drawClock(dc);
@@ -116,12 +122,6 @@ class CleanStepsView extends Ui.WatchFace {
         if (showBluetoothIcon && settings.phoneConnected) {
     		drawBluetooth(dc);
         }
-                
-		// Draw date
-		drawDate(dc);
-							
-		// Draw steps
-		drawSteps(dc);
     }
 
     // Called when this View is removed from the screen. Save the

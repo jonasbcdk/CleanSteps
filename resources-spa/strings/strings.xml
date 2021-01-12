@@ -32,8 +32,8 @@
     <string id="StepsBarColorTitle">Color de la barra de pasos</string>
     <string id="StepsBarColorPrompt">Selecciona el color de la barra de pasos</string>
     <string id="StepsAsTextTitle">Mostrar pasos como texto</string>
-    <string id="ShowBluetoothIconTitle">Mostrar ícone bluetooth</string>
-    <string id="ShowNotificationsTitle">Mostrar notificações</string>
+    <string id="ShowBluetoothIconTitle">Mostrar ícono de conexión bluetooth</string>
+    <string id="ShowNotificationsTitle">Mostrar notificaciones</string>
     <string id="ClockColorTitle">Color del reloj</string>
     <string id="ClockColorPrompt">Seleccione el color del reloj</string>
 </strings>
