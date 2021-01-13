@@ -301,7 +301,7 @@ class CleanStepsView extends Ui.WatchFace {
 		var date = dateinfo.day;
 		
 		var dateText = Lang.format(dateFormat, [weekday, month, date]);
-		
+				
 		//var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_SYSTEM_SMALL)[1];
 		var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_MEDIUM)[1];
 		
