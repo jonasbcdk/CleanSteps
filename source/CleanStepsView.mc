@@ -97,13 +97,13 @@ class CleanStepsView extends Ui.WatchFace {
 		               
 		// Draw steps
 		drawSteps(dc);
-		 
-		// Draw date
-		drawDate(dc);
-		
+		 		
 		// Draw clock
 		drawClock(dc);
 				
+		// Draw date
+		drawDate(dc);
+		
 		// Draw battery
 		drawBattery(dc);
 
