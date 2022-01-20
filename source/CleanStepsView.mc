@@ -306,7 +306,7 @@ class CleanStepsView extends Ui.WatchFace {
 		var dateTextHeight = dc.getTextDimensions("0", Gfx.FONT_MEDIUM)[1];
 		
 		//var dateY = watchHeight - watchHeight * 0.25 - dateTextHeight;
-		var dateY = watchHeight - watchHeight * 0.23 - dateTextHeight;
+		var dateY = watchHeight - watchHeight * 0.24 - dateTextHeight;
 				
 		//System.println("dateTextHeight: " + dateTextHeight);
 		
@@ -345,16 +345,19 @@ class CleanStepsView extends Ui.WatchFace {
     		stepBarY = stepBarY - 2;
     	}
 		
-		// Venu fix
-		if (watchHeight == 390)
+		// Venu + Venu2 fix
+		if (watchHeight > 380)
 		{
     		stepBarY = stepBarY + 60;
     	}
     	
     	var showStepsAsText = Application.getApp().getProperty("StepsAsText");
+    	var stepBarHeight = 18;
     	
     	if (showStepsAsText)
     	{
+    		stepBarY = stepBarY + 10;
+    	
     		if (steps > stepGoal)
 			{
 				dc.setColor(Gfx.COLOR_GREEN, backgroundColor);
@@ -362,7 +365,9 @@ class CleanStepsView extends Ui.WatchFace {
 			
 			dc.drawText(watchWidth * 0.5, stepBarY, Gfx.FONT_SYSTEM_SMALL, steps, Gfx.TEXT_JUSTIFY_CENTER);
 			
-			return;    	
+			stepBarY = stepBarY - 15;
+			stepBarHeight = 15;
+			//return;    	
     	}
 		
 		dc.drawRectangle(watchWidth * 0.2, stepBarY, stepBarWidth, 18);
